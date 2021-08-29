@@ -20,18 +20,36 @@ const initialState: RepositoriesState = {
 const repositoryReducer = produce((state: RepositoriesState = initialState, action: Action): RepositoriesState => {
   switch (action.type) {
     case ActionTypes.SEARCH_REPOSITORIES:
-      return {loading: true, error: null, data: [], favorite: []}
+      state.loading = true;
+      state.error = null;
+      state.data = [];
+      return state;
     case ActionTypes.SEARCH_REPOSITORIES_SUCCESS:
-      return {loading: false, error: null, data: action.payload, favorite: []}
+      state.loading = false;
+      state.error = null;
+      state.data = action.payload;
+      return state;
     case ActionTypes.SEARCH_REPOSITORIES_ERROR:
-      return {loading: false, error: action.payload, data: [], favorite: []}
+      state.loading = false;
+      state.error = action.payload;
+      state.data = [];
+      return state;
+    case ActionTypes.SET_FAVORITE_REPOSITORIES:
+      state.favorite = action.payload;
+      return state;
     case ActionTypes.ADD_FAVORITE_REPOSITORY:
       const favItem = state.data.find(repo => repo.id === action.payload);
-      if (favItem) state.favorite.push(favItem)
+      const indexItemInRepo = state.favorite.findIndex((repo) => repo.id === action.payload);
+      if (favItem && indexItemInRepo === -1) {
+        favItem.favorite = true;
+        state.favorite.push(favItem)
+      }
       return state;
     case ActionTypes.DELETE_FAVORITE_REPOSITORY:
       const index = state.favorite.findIndex(repo => repo.id === action.payload);
-      if (index !== -1) state.favorite.splice(index, 1)
+      if (index !== -1) {
+        state.favorite.splice(index, 1);
+      }
       return state;
     case ActionTypes.REPOSITORIES_FILTER:
       if (action.payload === 'all') {

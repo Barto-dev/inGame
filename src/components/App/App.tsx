@@ -1,25 +1,30 @@
 import React from 'react'
 import {Provider} from "react-redux";
 import {store} from "../../redux/store";
-import './App.css'
-import Search from "../Search/Search";
-import RepoList from "../RepoList/RepoList";
-import SelectLanguage from "../SelectLanguage/SelectLanguage";
+import {BrowserRouter, Switch, Route} from "react-router-dom";
+
+import RepoPage from "../../routes/RepoPage";
+import FavoritePage from "../../routes/FavoriteTsx";
+import Error404 from "../../routes/Error404";
+
+import Header from "../Header/Header";
 
 function App() {
 
   return (
     <Provider store={store}>
-      <div className="wrapper">
-        <div className="row person-list">
-          <div className="person-list__top">
-            <Search />
-            <SelectLanguage />
-          </div>
+      <BrowserRouter>
+        <Header />
 
-          <RepoList />
-        </div>
-      </div>
+        <main>
+          <Switch>
+            <Route path="/" exact component={RepoPage} />
+            <Route path="/favorite" exact component={FavoritePage} />
+            <Route component={Error404} />
+          </Switch>
+        </main>
+
+      </BrowserRouter>
     </Provider>
   )
 }

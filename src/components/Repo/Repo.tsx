@@ -14,7 +14,8 @@ const RepositoriesItem = ({
                             description,
                             html_url,
                             language,
-                            id
+                            id,
+                            favorite
                           }: RepoInterface): JSX.Element => {
   return (
     <div className={style.item}>
@@ -40,11 +41,11 @@ const RepositoriesItem = ({
         </div>
 
         <span>{description}</span>
-        <a href={html_url} className={style.link}>{html_url}</a>
+        <a href={html_url} target="_blank" rel="noreferrer noopener" className={style.link}>{html_url}</a>
 
         <div className={style.bottom}>
           <span className={style.language}>Language: {language}</span>
-          <Favorite repoId={id} />
+          <Favorite repoId={id} isFavorite={favorite} />
         </div>
 
       </div>

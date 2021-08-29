@@ -111,5 +111,6 @@ export interface Repo {
   html_url: string,
   language: string,
   id: number,
-  show: boolean
+  show: boolean,
+  favorite: boolean
 }

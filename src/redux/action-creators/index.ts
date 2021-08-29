@@ -3,6 +3,7 @@ import {Dispatch} from "redux";
 import {Action} from "../actions";
 import axios from "axios";
 import {transformData} from "../../utils/transformData";
+import {Repo} from "../../interfaces/github.interface";
 
 export const searchRepositories = (term: string) => async (dispatch: Dispatch<Action>) => {
   dispatch({type: ActionTypes.SEARCH_REPOSITORIES});
@@ -29,6 +30,10 @@ export const searchRepositories = (term: string) => async (dispatch: Dispatch<Ac
 
 export const filterRepositories = (value: string) => (dispatch: Dispatch<Action>) => {
   dispatch({type: ActionTypes.REPOSITORIES_FILTER, payload: value})
+}
+
+export const setFavoriteRepositories = (repoList: Repo[]) => (dispatch: Dispatch<Action>) => {
+  dispatch({type:ActionTypes.SET_FAVORITE_REPOSITORIES, payload: repoList})
 }
 
 export const addToFavoriteRepositories = (id: number) => (dispatch: Dispatch<Action>) => {

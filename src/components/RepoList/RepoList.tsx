@@ -1,23 +1,23 @@
 import React, {useEffect} from 'react';
 import Repo from "../Repo/Repo";
+import {useLocalStorageFav} from "../../hooks/useLocalStorageFav";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
-import SelectLanguage from "../SelectLanguage/SelectLanguage";
+import {mergeFavAndRepoArrays} from "../../utils/mergeFavAndRepoArrays";
 
-import style from './RepoList.module.css';
-
-const RepoList = () => {
+const RepoList = (): JSX.Element => {
+  useLocalStorageFav();
   const {data, loading, error, favorite} = useTypedSelector((state) => state.repositories);
+  const favMergedData = mergeFavAndRepoArrays(data, favorite)
 
   useEffect(() => {
     window.localStorage.setItem('favorite', JSON.stringify(favorite));
   }, [favorite]);
 
-
   return (
-    <div className={style.list}>
+    <div className="repo-grid">
       {error && <h3>{error}</h3>}
       {loading && <h3>Loading...</h3>}
-      {data.map((item) => item.show && <Repo key={item.id} {...item}/>)}
+      {favMergedData.map((item) => item.show && <Repo key={item.id} {...item} />)}
     </div>
   );
 };

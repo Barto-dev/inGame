@@ -9,11 +9,11 @@ body {
 }
 
 .visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  clip: rect(0 0 0 0);
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    clip: rect(0 0 0 0);
 }
 
 .wrapper {
@@ -24,10 +24,17 @@ body {
 }
 
 .row {
-    padding: 50px 0;
+    padding-bottom: 50px;
 }
 
 .person-list__top {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.repo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-gap: 20px;
 }

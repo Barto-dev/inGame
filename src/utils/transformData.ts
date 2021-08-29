@@ -12,7 +12,8 @@ export const transformData = (data: FullRepo[]): Repo[] => {
       html_url,
       language: language || 'Other',
       id,
-      show: true
+      show: true,
+      favorite: false
     }
   });
 }

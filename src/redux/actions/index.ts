@@ -15,6 +15,11 @@ interface SearchRepositoriesErrorAction {
   payload: string
 }
 
+interface SetFavoriteRepositories {
+  type: ActionTypes.SET_FAVORITE_REPOSITORIES,
+  payload: Repo[]
+}
+
 interface AddFavoriteRepositoriesAction {
   type: ActionTypes.ADD_FAVORITE_REPOSITORY,
   payload: number
@@ -36,3 +41,4 @@ export type Action = SearchRepositoriesAction
   | AddFavoriteRepositoriesAction
   | DeleteFavoriteRepositoriesAction
   | FilterRepositoriesAction
+  | SetFavoriteRepositories

@@ -1,3 +1,4 @@
 export interface FavoriteInterface {
-  repoId: number
+  repoId: number,
+  isFavorite: boolean
 }
