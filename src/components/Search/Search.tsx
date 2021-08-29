@@ -1,14 +1,16 @@
 import React, {useState, useMemo, useEffect} from 'react';
-import {useFetch} from "../../hooks/useFetch";
-import {Repo} from "./Search.interface";
+import {useActions} from "../../hooks/useActions";
 import debounce from 'lodash.debounce';
 
-const Search = (): JSX.Element => {
+const Search: React.FC = () => {
   const [query, setQuery] = useState('');
+  const {searchRepositories} = useActions();
   const DEBOUNCE_TIME = 1000;
 
   useEffect(() => {
-    console.log(query);
+    if (query) {
+      searchRepositories(query);
+    }
   }, [query]);
 
 

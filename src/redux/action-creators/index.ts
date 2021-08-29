@@ -25,3 +25,11 @@ export const searchRepositories = (term: string) => async (dispatch: Dispatch<Ac
     })
   }
 }
+
+export const addToFavoriteRepositories = (id: number) => (dispatch: Dispatch<Action>) => {
+  dispatch({type: ActionTypes.ADD_FAVORITE_REPOSITORY, payload: id})
+}
+
+export const deleteFavoriteRepositories = (id: number) => (dispatch: Dispatch<Action>) => {
+  dispatch({type: ActionTypes.DELETE_FAVORITE_REPOSITORY, payload: id})
+}

@@ -1,15 +1,19 @@
-import React, { useState } from 'react'
-import logo from '../../logo.svg'
+import React from 'react'
+import {Provider} from "react-redux";
+import {store} from "../../redux/store";
 import './App.css'
 import Search from "../Search/Search";
+import RepoList from "../RepoList/RepoList";
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
-      <Search />
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <Search />
+        <RepoList />
+      </div>
+    </Provider>
   )
 }
 

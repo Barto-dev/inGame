@@ -15,4 +15,18 @@ interface SearchRepositoriesErrorAction {
     payload: string
 }
 
-export type Action = SearchRepositoriesAction | SearchRepositoriesSuccessAction | SearchRepositoriesErrorAction
+interface AddFavoriteRepositoriesAction {
+  type: ActionTypes.ADD_FAVORITE_REPOSITORY,
+  payload: number
+}
+
+interface DeleteFavoriteRepositoriesAction {
+  type: ActionTypes.DELETE_FAVORITE_REPOSITORY;
+  payload: number
+}
+
+export type Action = SearchRepositoriesAction
+  | SearchRepositoriesSuccessAction
+  | SearchRepositoriesErrorAction
+  | AddFavoriteRepositoriesAction
+  | DeleteFavoriteRepositoriesAction
