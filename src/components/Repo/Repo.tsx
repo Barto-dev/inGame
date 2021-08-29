@@ -41,8 +41,7 @@ const RepositoriesItem = ({
         </div>
 
         {name === 'formurai' && (
-          <div className={style.advert}>Hello, Ben, Natalya, Vika! Sorry, but I just have to advertise my library,
-and ask you to put an star:)))</div>
+          <div className={style.advert}>Hello, Ben, Natalya, Vika! This is my library, put an star and smile:)))</div>
         )}
 
         <span>{description}</span>
