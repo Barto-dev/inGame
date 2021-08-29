@@ -34,9 +34,13 @@ const repositoryReducer = produce((state: RepositoriesState = initialState, acti
       if (index !== -1) state.favorite.splice(index, 1)
       return state;
     case ActionTypes.REPOSITORIES_FILTER:
-      state.data = state.data.map(item => {
-        return item.language !== action.payload ? {...item, show: false} : {...item, show: true}
-      });
+      if (action.payload === 'all') {
+        state.data = state.data.map(item => ({...item, show: true}))
+      } else {
+        state.data = state.data.map(item => {
+          return item.language !== action.payload ? {...item, show: false} : {...item, show: true}
+        });
+      }
       return state;
     default:
       return state
