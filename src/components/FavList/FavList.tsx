@@ -2,7 +2,6 @@ import React, {useEffect} from 'react';
 import {useLocalStorageFav} from "../../hooks/useLocalStorageFav";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 
-
 import Repo from "../Repo/Repo";
 
 const FavList = (): JSX.Element => {
@@ -18,7 +17,7 @@ const FavList = (): JSX.Element => {
     <div>
       {!favorite.length && <h2>You favorite list is empty</h2>}
       <div className="repo-grid">
-        {favorite.length && favorite.map((item) => item.show && <Repo key={item.id} {...item} />)}
+        {!!favorite.length && favorite.map((item) => item.show && <Repo key={item.id} {...item} />)}
       </div>
     </div>
   );

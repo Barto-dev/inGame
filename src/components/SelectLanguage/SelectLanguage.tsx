@@ -16,7 +16,7 @@ const SelectLanguage = () => {
 
   return (
     <div>
-      {uniqueLanguage.length && (
+      {!!uniqueLanguage.length && (
         <select className={styles.select}
                 onChange={onSelectChange}
                 aria-label="Filter repositories language">

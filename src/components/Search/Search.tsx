@@ -7,7 +7,7 @@ import style from './Search.module.css';
 const Search: React.FC = () => {
   const DEBOUNCE_TIME = 1000;
 
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState('formurai');
   const {searchRepositories} = useActions();
 
   useEffect(() => {
@@ -16,6 +16,7 @@ const Search: React.FC = () => {
     }
   }, [query]);
 
+  // clear debounce effect after component unmount
   useEffect(() => {
     return () => {
       debouncedChangeHandler.cancel();

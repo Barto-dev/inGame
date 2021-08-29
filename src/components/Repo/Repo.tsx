@@ -1,6 +1,6 @@
 import React from 'react';
 import Favorite from "../Favorite/Favorite";
-import {RepoInterface} from "./Repo.interface";
+import {Repo} from "../../interfaces/github.interface";
 
 import style from './Repo.module.css';
 import repoIcon from './img/repo-icon.svg';
@@ -16,7 +16,7 @@ const RepositoriesItem = ({
                             language,
                             id,
                             favorite
-                          }: RepoInterface): JSX.Element => {
+                          }: Repo): JSX.Element => {
   return (
     <div className={style.item}>
       <div className={style.wrapper}>

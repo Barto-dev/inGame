@@ -23,7 +23,7 @@ export const searchRepositories = (term: string) => async (dispatch: Dispatch<Ac
   } catch (err) {
     dispatch({
       type: ActionTypes.SEARCH_REPOSITORIES_ERROR,
-      payload: 'qewqew'
+      payload: 'Network error...'
     })
   }
 }
