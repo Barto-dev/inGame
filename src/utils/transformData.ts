@@ -1,4 +1,4 @@
-import {FullRepo, Repo} from "../src/interfaces/github.interface";
+import {FullRepo, Repo} from "../interfaces/github.interface";
 
 export const transformData = (data: FullRepo[]): Repo[] => {
   return data.map((item) => {

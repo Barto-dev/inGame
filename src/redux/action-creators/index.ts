@@ -2,7 +2,7 @@ import {ActionTypes} from "../action-types";
 import {Dispatch} from "redux";
 import {Action} from "../actions";
 import axios from "axios";
-import {transformData} from "../../../utils/transformData";
+import {transformData} from "../../utils/transformData";
 
 export const searchRepositories = (term: string) => async (dispatch: Dispatch<Action>) => {
   dispatch({type: ActionTypes.SEARCH_REPOSITORIES});
