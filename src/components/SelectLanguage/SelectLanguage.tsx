@@ -18,7 +18,8 @@ const SelectLanguage = () => {
     <div>
       {uniqueLanguage.length && (
         <select className={styles.select}
-                onChange={onSelectChange} aria-label="Filter repositories language">
+                onChange={onSelectChange}
+                aria-label="Filter repositories language">
           <option value="all">All</option>
           {uniqueLanguage.map((item) => {
             return (<option key={item} value={item}>{item}</option>)
