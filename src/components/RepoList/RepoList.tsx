@@ -1,9 +1,15 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Repo from "../Repo/Repo";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 
 const RepoList = () => {
-  const {data, loading, error} = useTypedSelector((state) => state.repositories)
+  const {data, loading, error, favorite} = useTypedSelector((state) => state.repositories);
+
+  useEffect(() => {
+    window.localStorage.setItem('favorite', JSON.stringify(favorite));
+  }, [favorite]);
+
+
   return (
     <div>
       {error && <h3>{error}</h3>}

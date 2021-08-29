@@ -8,7 +8,7 @@ const Favorite = ({repoId}: FavoriteInterface): JSX.Element => {
 
   const onFavChangeHandler = () => {
     setChecked(!checked);
-    if (checked) {
+    if (!checked) {
       addToFavoriteRepositories(repoId)
     } else {
       deleteFavoriteRepositories(repoId)

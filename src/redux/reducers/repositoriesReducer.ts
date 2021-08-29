@@ -17,21 +17,6 @@ const initialState: RepositoriesState = {
   favorite: []
 }
 
-/*
-const repositoryReducer = (state: RepositoriesState = initialState, action: Action) : RepositoriesState => {
-  switch (action.type) {
-    case ActionTypes.SEARCH_REPOSITORIES:
-      return {loading: true, error: null, data: []}
-    case ActionTypes.SEARCH_REPOSITORIES_SUCCESS:
-      return {loading: false, error: null, data: action.payload}
-    case ActionTypes.SEARCH_REPOSITORIES_ERROR:
-      return {loading: false, error: action.payload, data: []}
-    default:
-      return state
-  }
-}
-*/
-
 const repositoryReducer = produce((state: RepositoriesState = initialState, action: Action): RepositoriesState => {
   switch (action.type) {
     case ActionTypes.SEARCH_REPOSITORIES:
@@ -41,7 +26,8 @@ const repositoryReducer = produce((state: RepositoriesState = initialState, acti
     case ActionTypes.SEARCH_REPOSITORIES_ERROR:
       return {loading: false, error: action.payload, data: [], favorite: []}
     case ActionTypes.ADD_FAVORITE_REPOSITORY:
-      const favItem = state.favorite.find(repo => repo.id === action.payload);
+      const favItem = state.data.find(repo => repo.id === action.payload);
+      console.log(favItem);
       if (favItem) state.favorite.push(favItem)
       return state;
     case ActionTypes.DELETE_FAVORITE_REPOSITORY:
