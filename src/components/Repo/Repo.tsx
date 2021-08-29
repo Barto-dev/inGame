@@ -40,6 +40,10 @@ const RepositoriesItem = ({
 
         </div>
 
+        {name === 'Formurai' && (
+          <div className={style.advert}>Hello, Ben, Natalya, Vika! Sorry, but I just have to advertise my library:)))</div>
+        )}
+
         <span>{description}</span>
         <a href={html_url} target="_blank" rel="noreferrer noopener" className={style.link}>{html_url}</a>
 
