@@ -17,6 +17,11 @@ const initialState: RepositoriesState = {
   favorite: [],
 }
 
+// Why i took immer
+// Immer allows for the use of normal JavaScript, objects, maps and arrays without any need to learn a new API
+// Bundle size immer: 5.5kb https://bundlephobia.com/package/immer@9.0.5
+// Bundle size immutable.js: 17.5kb https://bundlephobia.com/package/immutable@4.0.0-rc.14
+// The size difference is three times
 const repositoryReducer = produce((state: RepositoriesState = initialState, action: Action): RepositoriesState => {
   switch (action.type) {
     case ActionTypes.SEARCH_REPOSITORIES:

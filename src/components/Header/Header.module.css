@@ -18,3 +18,8 @@
     display: block;
     color: #007AFF;
 }
+
+.row .matrix {
+    color: #03A062;
+    margin-left: auto;
+}

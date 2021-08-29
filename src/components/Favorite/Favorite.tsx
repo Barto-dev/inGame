@@ -3,7 +3,7 @@ import cn from 'classnames';
 import {FavoriteInterface} from "./Favorite.interface";
 import {useActions} from "../../hooks/useActions";
 
-import styles from './Favorite.module.css';
+import style from './Favorite.module.css';
 
 import heartIcon from './img/heart-icon.svg';
 import fillHeartIcon from './img/independ-heart-icon.svg';
@@ -39,16 +39,16 @@ const Favorite = ({repoId, isFavorite}: FavoriteInterface): JSX.Element => {
 
 
   return (
-    <label className={cn(styles.favorite, {
-      [styles.addFavorite]: isFavorite
+    <label className={cn(style.favorite, {
+      [style.addFavorite]: isFavorite
     })}>
       <input type="checkbox"
              checked={checked}
              aria-label="Add to favorite"
              onChange={(e) => setChecked(e.target.checked)}
-             className={cn('visually-hidden', styles.input)} />
-      <img src={heartIcon} aria-hidden="true" alt="icon" className={styles.icon} />
-      <img src={fillHeartIcon} aria-hidden="true" alt="icon" className={styles.iconCheck} />
+             className={cn('visually-hidden', style.input)} />
+      <img src={heartIcon} aria-hidden="true" alt="icon" className={style.icon} />
+      <img src={fillHeartIcon} aria-hidden="true" alt="icon" className={style.iconCheck} />
     </label>
   );
 };
