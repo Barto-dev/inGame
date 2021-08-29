@@ -3,6 +3,8 @@ import Repo from "../Repo/Repo";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 import SelectLanguage from "../SelectLanguage/SelectLanguage";
 
+import style from './RepoList.module.css';
+
 const RepoList = () => {
   const {data, loading, error, favorite} = useTypedSelector((state) => state.repositories);
 
@@ -12,11 +14,10 @@ const RepoList = () => {
 
 
   return (
-    <div>
+    <div className={style.list}>
       {error && <h3>{error}</h3>}
-      {loading && <h3>{loading}</h3>}
+      {loading && <h3>Loading...</h3>}
       {data.map((item) => item.show && <Repo key={item.id} {...item}/>)}
-      <SelectLanguage />
     </div>
   );
 };

@@ -34,6 +34,7 @@ const Search: React.FC = () => {
       <input
         className={style.input}
         type="search"
+        placeholder="Enter search terms..."
         onChange={debouncedChangeHandler}
         aria-label="Search project on Github" />
     </div>
