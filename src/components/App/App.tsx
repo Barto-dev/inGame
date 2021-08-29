@@ -9,9 +9,11 @@ function App() {
 
   return (
     <Provider store={store}>
-      <div className="App">
-        <Search />
-        <RepoList />
+      <div className="wrapper">
+        <div className="row">
+          <Search />
+          <RepoList />
+        </div>
       </div>
     </Provider>
   )

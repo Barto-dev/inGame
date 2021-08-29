@@ -1,3 +1,3 @@
-import {Item} from "../Search/Search.interface";
+import {Repo} from "../../interfaces/github.interface";
 
-export interface RepoInterface extends Item {}
+export interface RepoInterface extends Repo {}

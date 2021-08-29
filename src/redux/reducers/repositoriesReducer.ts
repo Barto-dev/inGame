@@ -1,20 +1,20 @@
 import {produce} from 'immer';
 import {Action} from "../actions";
 import {ActionTypes} from "../action-types";
-import {Item} from "../actions/Repo.interface";
+import {Repo} from "../../interfaces/github.interface";
 
 interface RepositoriesState {
   loading: boolean,
   error: string | null,
-  data: Item[],
-  favorite: Item[]
+  data: Repo[],
+  favorite: Repo[],
 }
 
 const initialState: RepositoriesState = {
   loading: false,
   error: null,
   data: [],
-  favorite: []
+  favorite: [],
 }
 
 const repositoryReducer = produce((state: RepositoriesState = initialState, action: Action): RepositoriesState => {
@@ -27,12 +27,16 @@ const repositoryReducer = produce((state: RepositoriesState = initialState, acti
       return {loading: false, error: action.payload, data: [], favorite: []}
     case ActionTypes.ADD_FAVORITE_REPOSITORY:
       const favItem = state.data.find(repo => repo.id === action.payload);
-      console.log(favItem);
       if (favItem) state.favorite.push(favItem)
       return state;
     case ActionTypes.DELETE_FAVORITE_REPOSITORY:
       const index = state.favorite.findIndex(repo => repo.id === action.payload);
       if (index !== -1) state.favorite.splice(index, 1)
+      return state;
+    case ActionTypes.REPOSITORIES_FILTER:
+      state.data = state.data.map(item => {
+        return item.language !== action.payload ? {...item, show: false} : {...item, show: true}
+      });
       return state;
     default:
       return state

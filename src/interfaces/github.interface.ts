@@ -109,6 +109,7 @@ export interface Repo {
   stargazers_count: number,
   description: string,
   html_url: string,
-  language: string | null,
-  id: number
+  language: string,
+  id: number,
+  show: boolean
 }

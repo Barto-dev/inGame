@@ -1,6 +1,7 @@
 import React, {useState, useMemo, useEffect} from 'react';
 import {useActions} from "../../hooks/useActions";
 import debounce from 'lodash.debounce';
+import style from './Search.module.css';
 
 const Search: React.FC = () => {
   const [query, setQuery] = useState('');
@@ -31,6 +32,7 @@ const Search: React.FC = () => {
   return (
     <div>
       <input
+        className={style.input}
         type="search"
         onChange={debouncedChangeHandler}
         aria-label="Search project on Github" />

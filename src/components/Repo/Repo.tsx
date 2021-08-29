@@ -3,8 +3,7 @@ import Favorite from "../Favorite/Favorite";
 import {RepoInterface} from "./Repo.interface";
 
 
-const RepositoriesItem = ({owner, name, stargazers_count, description, html_url, language, id}: RepoInterface): JSX.Element => {
-  const {avatar_url, login} = owner;
+const RepositoriesItem = ({avatar_url, login, name, stargazers_count, description, html_url, language, id}: RepoInterface): JSX.Element => {
   return (
     <div>
       <img src={avatar_url} alt={`${login} avatar`} width={50} height={50}/>

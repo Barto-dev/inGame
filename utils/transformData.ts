@@ -10,8 +10,9 @@ export const transformData = (data: FullRepo[]): Repo[] => {
       stargazers_count,
       description,
       html_url,
-      language,
-      id
+      language: language || 'Other',
+      id,
+      show: true
     }
   });
 }

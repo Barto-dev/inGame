@@ -1,18 +1,18 @@
 import {ActionTypes} from "../action-types";
-import {Item} from "./Repo.interface";
+import {Repo} from "../../interfaces/github.interface";
 
 interface SearchRepositoriesAction {
-    type: ActionTypes.SEARCH_REPOSITORIES
+  type: ActionTypes.SEARCH_REPOSITORIES
 }
 
 interface SearchRepositoriesSuccessAction {
-    type: ActionTypes.SEARCH_REPOSITORIES_SUCCESS;
-    payload: Item[]
+  type: ActionTypes.SEARCH_REPOSITORIES_SUCCESS;
+  payload: Repo[]
 }
 
 interface SearchRepositoriesErrorAction {
-    type: ActionTypes.SEARCH_REPOSITORIES_ERROR;
-    payload: string
+  type: ActionTypes.SEARCH_REPOSITORIES_ERROR;
+  payload: string
 }
 
 interface AddFavoriteRepositoriesAction {
@@ -25,8 +25,14 @@ interface DeleteFavoriteRepositoriesAction {
   payload: number
 }
 
+interface FilterRepositoriesAction {
+  type: ActionTypes.REPOSITORIES_FILTER,
+  payload: string
+}
+
 export type Action = SearchRepositoriesAction
   | SearchRepositoriesSuccessAction
   | SearchRepositoriesErrorAction
   | AddFavoriteRepositoriesAction
   | DeleteFavoriteRepositoriesAction
+  | FilterRepositoriesAction
