@@ -1,5 +1,5 @@
 import React, {useState, useMemo, useEffect} from 'react';
-import {useFetch} from "../../../hooks/useFetch";
+import {useFetch} from "../../hooks/useFetch";
 import {Repo} from "./Search.interface";
 import debounce from 'lodash.debounce';
 
