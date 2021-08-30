@@ -10,19 +10,6 @@ const Search = (): JSX.Element => {
   const [query, setQuery] = useState('formurai');
   const {searchRepositories} = useActions();
 
-  useEffect(() => {
-    if (query) {
-      searchRepositories(query);
-    }
-  }, [query]);
-
-  // clear debounce effect after component unmount
-  useEffect(() => {
-    return () => {
-      debouncedChangeHandler.cancel();
-    }
-  }, []);
-
   const changeHandler = (evt: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(evt.target.value);
   };
@@ -30,6 +17,20 @@ const Search = (): JSX.Element => {
   const debouncedChangeHandler = useMemo(
     () => debounce(changeHandler, DEBOUNCE_TIME)
     , []);
+
+  useEffect(() => {
+    if (query) {
+      searchRepositories(query);
+    }
+  }, [query, searchRepositories]);
+
+  // clear debounce effect after component unmount
+  useEffect(() => {
+    return () => {
+      debouncedChangeHandler.cancel();
+    }
+  }, [debouncedChangeHandler]);
+
 
   return (
     <div>

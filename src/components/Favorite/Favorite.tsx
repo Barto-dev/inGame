@@ -35,7 +35,7 @@ const Favorite = ({repoId, isFavorite}: FavoriteInterface): JSX.Element => {
     } else {
       deleteFavoriteRepositories(repoId)
     }
-  }, [debounceCheck]);
+  }, [debounceCheck, repoId, addToFavoriteRepositories, deleteFavoriteRepositories]);
 
 
   return (
