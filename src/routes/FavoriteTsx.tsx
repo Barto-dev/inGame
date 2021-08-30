@@ -1,6 +1,5 @@
 import React from 'react';
 
-import RepoList from "../components/RepoList/RepoList";
 import FavList from "../components/FavList/FavList";
 
 const FavoritePage = () => {

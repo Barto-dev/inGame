@@ -1,8 +1,4 @@
-import React, {useEffect} from 'react';
-
-import {useLocalStorageFav} from "../hooks/useLocalStorageFav";
-
-import {useActions} from "../hooks/useActions";
+import React from 'react';
 
 import Search from "../components/Search/Search";
 import SelectLanguage from "../components/SelectLanguage/SelectLanguage";
