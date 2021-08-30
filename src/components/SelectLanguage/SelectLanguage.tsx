@@ -4,7 +4,7 @@ import {useActions} from "../../hooks/useActions";
 
 import styles from './SelectLanguage.module.css';
 
-const SelectLanguage = () => {
+const SelectLanguage = (): JSX.Element => {
   const {data} = useTypedSelector((state) => state.repositories);
   const langArr = data.map((item) => item.language);
   const uniqueLanguage = [...new Set(langArr)];

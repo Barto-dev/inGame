@@ -57,6 +57,8 @@ const repositoryReducer = produce((state: RepositoriesState = initialState, acti
       }
       return state;
     case ActionTypes.REPOSITORIES_FILTER:
+      // It may seem strange to decide to filter the original array,
+      // but this way we don't have to keep two practically identical data structures in memory
       if (action.payload === 'all') {
         state.data = state.data.map(item => ({...item, show: true}))
       } else {

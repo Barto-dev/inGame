@@ -9,7 +9,7 @@ import Error404 from "../../routes/Error404";
 
 import Header from "../Header/Header";
 
-function App() {
+function App(): JSX.Element {
 
   return (
     <Provider store={store}>

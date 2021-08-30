@@ -4,7 +4,7 @@ import debounce from 'lodash.debounce';
 
 import style from './Search.module.css';
 
-const Search: React.FC = () => {
+const Search = (): JSX.Element => {
   const DEBOUNCE_TIME = 1000;
 
   const [query, setQuery] = useState('formurai');
